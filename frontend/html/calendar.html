@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full Emotion Calendar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Pretendard', sans-serif;
+      background: linear-gradient(to bottom right, #dbeeff, #f0f8ff);
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #007acc;
+      margin-bottom: 40px;
+    }
+
+    .calendar-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .calendar-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+
+    .calendar-cell {
+      height: 100px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      font-size: 14px;
+      padding: 8px;
+      position: relative;
+    }
+
+    .calendar-cell.positive {
+      background-color: #d4f8e8;
+    }
+
+    .calendar-cell.negative {
+      background-color: #ffe0e0;
+    }
+
+    .calendar-cell.neutral {
+      background-color: #f0f0f0;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #007acc;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>June 2025 Emotion Calendar</h1>
+
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+    <div class="calendar-grid">
+      <div class="calendar-cell">1</div><div class="calendar-cell">2</div>
+      <div class="calendar-cell">3</div><div class="calendar-cell">4</div>
+      <div class="calendar-cell">5</div><div class="calendar-cell">6</div>
+      <div class="calendar-cell">7</div><div class="calendar-cell">8</div>
+      <div class="calendar-cell">9</div><div class="calendar-cell">10</div>
+      <div class="calendar-cell">11</div><div class="calendar-cell">12</div>
+      <div class="calendar-cell">13</div><div class="calendar-cell">14</div>
+      <div class="calendar-cell">15</div><div class="calendar-cell">16</div>
+      <div class="calendar-cell">17</div><div class="calendar-cell">18</div>
+      <div class="calendar-cell">19</div><div class="calendar-cell">20</div>
+      <div class="calendar-cell">21</div><div class="calendar-cell">22</div>
+      <div class="calendar-cell">23</div><div class="calendar-cell">24</div>
+      <div class="calendar-cell">25</div><div class="calendar-cell">26</div>
+      <div class="calendar-cell">27</div><div class="calendar-cell">28</div>
+      <div class="calendar-cell">29</div><div class="calendar-cell">30</div>
+      <div class="calendar-cell">1</div><div class="calendar-cell">2</div>
+      <div class="calendar-cell">3</div><div class="calendar-cell">4</div>
+      <div class="calendar-cell">5</div>
+    </div>
+  </div>
+
+  <div style="text-align: center">
+    <a class="back-btn" href="team_project.html">← Back to Dashboard</a>
+  </div>
+
+</body>
+</html>
