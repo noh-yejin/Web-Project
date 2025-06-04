@@ -115,6 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('user_info', JSON.stringify(users));
 
     alert('Signup completed successfully!');
-    location.href = '../html/index.html';
+    location.href = '../html/login.html';
   });
 });

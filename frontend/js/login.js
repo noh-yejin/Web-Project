@@ -9,7 +9,7 @@ document.getElementById('login-btn').addEventListener('click', function () {
   if (matchedUser) {
     alert('로그인 성공!');
     // 여기에 로그인 후 이동할 페이지 추가
-    location.href = "../html/team_project.html";
+    location.href = "../html/main.html";
   } else {
     alert('아이디 또는 비밀번호가 일치하지 않습니다.');
   }
