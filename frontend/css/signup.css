@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.left-panel {
+  width: 50%;
+  background: url('/static/img/eaai.png') no-repeat center 85%;
+  background-size: 80%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 60px 40px;
+}
+
+.left-panel .overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.left-panel h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.left-panel p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.right-panel {
+  width: 50%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 40px;
+  overflow-y: auto;
+}
+
+.right-panel h2 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: #161616;
+  text-align: center;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group.full {
+  grid-column: span 2;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #525252;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #8d8d8d;
+  font-size: 14px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.checkbox-group {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input {
+  margin-right: 10px;
+}
+
+button {
+  grid-column: span 2;
+  padding: 14px;
+  background-color: #0f62fe;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0353e9;
+}
+
+.back-button {
+  background-color: #d0d0d0;
+  color: #333;
+}
+
+.back-button:hover {
+  background-color: #b0b0b0;
+}
+
+.info-text {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full,
+  button,
+  .back-button,
+  .checkbox-group {
+    grid-column: span 1;
+  }
+
+  .left-panel {
+    min-height: 250px;
+    background-size: contain;
+  }
+
+  .right-panel {
+    padding-top: 20px;
+  }
+}
+

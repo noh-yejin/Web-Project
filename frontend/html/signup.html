@@ -2,150 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Signup</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-
-    form {
-      max-width: 400px;
-      margin: 30px auto;
-      background-color: #fff;
-      padding: 20px 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    form input[type="text"],
-    form input[type="password"],
-    form input[type="email"],
-    form select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      margin-bottom: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    form label {
-      display: block;
-      margin: 10px 0;
-      font-size: 14px;
-    }
-
-    form button#signup-btn {
-      width: 100%;
-      padding: 12px;
-      background-color: #007acc;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 15px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      margin-top: 10px;
-    }
-
-    form button#signup-btn:hover {
-      background-color: #005a99;
-    }
-
-    #id-check-result {
-      font-size: 12px;
-      margin-bottom: 8px;
-      color: #e74c3c;
-    }
-
-    button[onclick] {
-      display: block;
-      margin: 15px auto;
-      width: auto;
-      padding: 8px 16px;
-      background-color: #999;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button[onclick]:hover {
-      background-color: #666;
-    }
-
-    .email-container {
-      display: flex;
-      gap: 5px;
-      align-items: center;
-      margin-top: 8px;
-      margin-bottom: 8px;
-    }
-
-    .email-container input[type="text"] {
-      flex: 1.2;
-    }
-
-    .email-container select {
-      flex: 1;
-    }
-
-    #signup-email-domain-custom {
-      margin-top: 8px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EAAI Signup</title>
+  <link rel="stylesheet" href="/static/css/signup.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <h1>Signup</h1>
-  <form id="signup-form">
-    <input type="text" id="signup-id" placeholder="Username" required>
-    <div id="id-check-result"></div>
-
-    <input type="password" id="signup-pw" placeholder="Password" required>
-    <input type="password" id="signup-pw-confirm" placeholder="Confirm Password" required>
-
-    <select id="signup-gender">
-      <option value="">Please select your gender (optional)</option>
-      <option value="female">Female</option>
-      <option value="male">Male</option>
-      <option value="prefer-not-to-say">Prefer not to say</option>
-    </select>
-
-    <div class="email-container">
-      <input type="text" id="signup-email-id" placeholder="Email ID" required>
-      <span>@</span>
-      <select id="signup-email-domain">
-        <option value="naver.com">naver.com</option>
-        <option value="gmail.com">gmail.com</option>
-        <option value="daum.net">daum.net</option>
-        <option value="self">Custom input</option>
-      </select>
+  <div class="container">
+    <div class="left-panel">
+      <div class="overlay">
+        <h1>Welcome to EAAI</h1>
+        <p>Our emotion analysis service celebrates your happiness and eases your sorrow. Understanding the sincerity of your feelings—that's where we begin.</p>
+      </div>
     </div>
+    <div class="right-panel">
+      <h2>Create your EAAI Account</h2>
+      <form id="signup-form">
+        <div class="form-group full">
+          <label for="signup-id">ID</label>
+          <input type="text" id="signup-id" name="username" placeholder="Enter your ID" required />
+          <div id="id-check-result" class="info-text"></div>
+        </div>
 
-    <!-- Hidden input for final email to be sent to DB -->
-    <input type="hidden" id="signup-email-final" name="signup-email-final">
+        <div class="form-group">
+          <label for="signup-pw">Password</label>
+          <input type="password" id="signup-pw" name="password" required />
+          <button type="button" class="toggle-password" onclick="togglePassword('signup-pw', this)">🙉</button>
+        </div>
 
-    <label>
-      <input type="checkbox" id="signup-marketing"> Agree to receive advertising and marketing
-    </label>
+        <div class="form-group">
+          <label for="signup-pw-confirm">Confirm Password</label>
+          <input type="password" id="signup-pw-confirm" name="confirm-password" required />
+          <button type="button" class="toggle-password" onclick="togglePassword('signup-pw-confirm', this)">🙉</button>
+        </div>
 
-    <button type="button" id="signup-btn">Sign Up</button>
-  </form>
+        <div class="form-group full">
+          <label for="signup-gender">Gender</label>
+          <select id="signup-gender" name="gender">
+            <option value="">Select your gender</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="prefer-not-to-say">Prefer not to say</option>
+          </select>
+        </div>
 
-  <button onclick="location.href='login.html'">Go Back</button>
+        <div class="form-group">
+          <label for="signup-email-id">Email Address</label>
+          <input type="text" id="signup-email-id" placeholder="Email ID" required />
+        </div>
+        <div class="form-group">
+          <label for="signup-email-domain">&nbsp;</label>
+          <select id="signup-email-domain">
+            <option value="naver.com">naver.com</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="daum.net">daum.net</option>
+            <option value="self">Custom</option>
+          </select>
+        </div>
 
-  <script src="../js/signup.js"></script>
+        <input type="hidden" id="signup-email-final" name="signup-email-final" />
 
+        <div class="checkbox-group">
+          <input type="checkbox" id="signup-marketing" name="marketing" />
+          <label for="signup-marketing">I agree to receive advertising and marketing</label>
+        </div>
+
+        <button type="button" id="signup-btn">Create Account</button>
+        <button type="button" class="back-button" onclick="location.href='/static/html/login.html'">Back to Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/js/signup.js"></script>
 </body>
 </html>

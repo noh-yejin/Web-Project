@@ -1,0 +1,240 @@
+/* Base Layout */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard', sans-serif;
+  background: url('/static/img/main_background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  width: 50px;
+  height: auto;
+}
+
+.logo-text {
+  font-size: 24px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  color: #070f14;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #007acc;
+  font-weight: bold;
+  margin-left: 20px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: #005f99;
+}
+
+.hero-section {
+  height: 70vh; /* 화면 전체 높이 */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.main-title {
+  font-size: 46px;
+  color: #003f5c;
+  text-align: center;
+}
+
+.message-area {
+  padding-top: 100px; /* 스크롤 후 여유 공간 */
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Message Area */
+.message-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  gap: 30px;
+}
+
+.input-label {
+  font-size: 32px;
+  color: #03090b;
+  font-weight: 500;
+  margin-bottom: 4px;
+  margin-left: 4px;
+}
+
+/* Left Bubble - Input */
+.bubble-left {
+  background-color: #ffffff;
+  border-left: 8px solid #007acc;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  width: 90%;
+}
+
+.bubble-left::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -12px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 12px solid #007acc;
+}
+
+.bubble-left form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+textarea {
+  width: 95%;
+  height: 100px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 8px #007acc77;
+}
+
+input[type="date"] {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005f99;
+}
+
+/* Right Bubble - Output */
+.bubble-right {
+  align-self: flex-end;
+  background-color: #f0faff;
+  border-right: 8px solid #2ecc71;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bubble-right::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -12px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 12px solid #2ecc71;
+}
+
+.analysis-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.bubble-link {
+  background-color: #007acc;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.bubble-link:hover {
+  background-color: #005f99;
+}
+
+/* Footer */
+.dashboard-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  padding: 20px 0;
+  background: white;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .message-area {
+    align-items: center;
+  }
+
+  .bubble-left,
+  .bubble-right {
+    width: 90%;
+  }
+} 

@@ -1,16 +1,45 @@
-document.getElementById('login-btn').addEventListener('click', function () {
+document.getElementById('login-btn').addEventListener('click', async function () {
   const loginId = document.getElementById('login-id').value.trim();
   const loginPw = document.getElementById('login-pw').value.trim();
 
-  const users = JSON.parse(localStorage.getItem('user_info')) || [];
+  try {
+    const response = await fetch('http://localhost:8000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: loginId,
+        password: loginPw
+      })
+    });
 
-  const matchedUser = users.find(user => user.id === loginId && user.password === loginPw);
+    const result = await response.json();
 
-  if (matchedUser) {
-    alert('로그인 성공!');
-    // 여기에 로그인 후 이동할 페이지 추가
-    location.href = "../html/main.html";
-  } else {
-    alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+    if (response.ok) {
+      sessionStorage.setItem('user_id', result.user_id);
+      location.href = "/static/html/main.html";
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Login Failed',
+        text: 'Incorrect user ID or password.',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+        allowOutsideClick: true,
+        allowEscapeKey: true,
+        allowEnterKey: true,
+        backdrop: true,
+        scrollbarPadding: false
+      });
+    }
+  } catch (error) {
+    console.error('Login error:', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Error Occurred',
+      text: 'A server error occurred. Please try again later.',
+      confirmButtonText: 'Close'
+    });
   }
 });

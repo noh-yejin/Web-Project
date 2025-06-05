@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Emotion Analysis Model</title>
-  <link rel="stylesheet" href="../css/style_web.css">
+  <title>EAAI - Emotion Analysis AI</title>
+  <link rel="stylesheet" href="/static/css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
 </head>
-<body>
+<!-- <body>
 
   <header class="dashboard-header">
     <h1>Emotion Analysis Model</h1>
@@ -14,7 +14,7 @@
 
   <main class="dashboard-grid">
 
-    <!-- 왼쪽 위: 이용 안내 -->
+
     <section class="extra-panel">
       <h2>How to Use</h2>
       <p>✍️ Write freely about your emotions in the journal area.</p>
@@ -24,7 +24,7 @@
       <p>📅 The emotion calendar visualizes your mood history.</p>
     </section>
 
-    <!-- 오른쪽 위: 일기 입력 -->
+
     <section class="input-panel">
       <h2>Today's Journal</h2>
       <form id="diary-form" method="POST">
@@ -36,26 +36,24 @@
       </form>
     </section>
 
-    <!-- 왼쪽 아래: 감정 달력 -->
     <section class="calendar-panel">
-      <h2>Emotion Calendar <a href="calendar.html" class="calendar-expand-btn">+</a></h2>
+      <h2>Emotion Calendar <a href="/static/html/calendar.html" class="calendar-expand-btn">+</a></h2>
       <div class="calendar-header">
         <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
       </div>
       <div class="calendar-grid">
-        <!-- 동적으로 생성되는 달력 셀 -->
+
       </div>
     </section>
 
-    <!-- 오른쪽 아래: 오늘의 감정 -->
+
     <section class="stats-panel">
       <h2>Today's Emotion</h2>
       <div class="stats-box" id="analysis-result">
-        <p>Predicted Emotion: <span id="result-sentiment">-</span></p>
-        <p>Extracted Keywords: <span id="result-keywords">-</span></p>
+        <p>Emotion: <span id="result-sentiment">-</span></p>
         <p style="margin-top:10px; font-weight: bold; color: #007acc;">Advice 💡</p>
         <div id="result-advice">-</div>
-        <a href="weekly_summary.html" class="calendar-expand-btn" style="margin-top: 10px; display:inline-block;">Weekly Emotion Summary→</a>
+        <a href="/static/html/weekly_summary.html" class="calendar-expand-btn" style="margin-top: 10px; display:inline-block;">Weekly Emotion Summary→</a>
       </div>
     </section>
   </main>
@@ -64,7 +62,7 @@
     <p>Contact: <a href="mailto:emotionai@teamproject.com">emotionai@teamproject.com</a></p>
   </footer>
 
-  <!-- ✅ JavaScript -->
+
   <script>
     const form = document.getElementById('diary-form');
     const textarea = document.getElementById('diary-text');
@@ -75,28 +73,37 @@
     const advicePara = document.getElementById('result-advice');
     const calendarGrid = document.querySelector('.calendar-grid');
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', async function(event) {
       event.preventDefault();
+
       const text = textarea.value.trim();
       const date = dateInput.value;
+      const userId = sessionStorage.getItem("user_id") || "anonymous";  // 로그인 시 저장된 user_id
+
       if (!text || !date) return;
 
-      const keywords = text.split(/\s+/).filter(word => word.length >= 2).slice(0, 3);
-      const sentiments = ['Positive', 'Negative', 'Neutral'];
-      const sentiment = sentiments[Math.floor(Math.random() * 3)];
+      try {
+        const response = await fetch("/analyze", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            text: text,
+            entry_date: date,
+            user_id: userId
+          })
+        });
 
-      const adviceMap = {
-        'Positive': 'Keep up the great energy! 😊',
-        'Negative': 'Take a break and be kind to yourself today.',
-        'Neutral': 'Even calm days are meaningful. Appreciate yourself!'
-      };
+        const result = await response.json();
+        
+        sentimentSpan.textContent = result.emotion || "-";
+        advicePara.textContent = result.message || "-";
+        resultBox.style.display = "block";
 
-      sentimentSpan.textContent = sentiment;
-      keywordsSpan.textContent = keywords.join(', ');
-      advicePara.textContent = adviceMap[sentiment] || '-';
-      resultBox.style.display = 'block';
+      } catch (error) {
+        console.error("Emotion analysis failed:", error);
+        alert("Failed to analyze emotion. Please try again.");
+      }
     });
-
     // 📅 달력 생성 함수
     function generateCalendar(year, month) {
       calendarGrid.innerHTML = ''; // 기존 셀 제거
@@ -140,5 +147,114 @@
       generateCalendar(yyyy, today.getMonth());
     });
   </script>
+</body>
+</html> -->
+<body>
+
+  <!-- Header with Logo and Navigation -->
+  <header class="main-header">
+    <div class="logo-area">
+      <img src="/static/img/eaai_icon.png" alt="EAAI Logo" class="logo-img">
+      <span class="logo-text">EAAI</span>
+    </div>
+    <nav class="main-nav">
+      <a href="/static/html/howto.html">How To Use</a>
+      <a href="/static/html/contact.html">Contact Us</a>
+      <a href="/static/html/account.html">My Account</a>
+    </nav>
+
+  </header>
+
+ <main class="main-content">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1 class="main-title">Write your day, <br>we'll read your heart.</h1>
+  </section>
+
+  <!-- Message Area: Scroll target -->
+  <section class="message-area">
+    <!-- Left Bubble: Diary Input -->
+     <p class="input-label">How was your day today?</p>
+    <div class="bubble-left">
+      <form id="diary-form" method="POST">
+        <label for="entry-date">Select Date:</label>
+        <input type="date" id="entry-date" name="entry-date" required>
+        <textarea id="diary-text" name="diary-text" placeholder="Write about your day here..." required></textarea>
+        <button type="submit">Analyze Emotion</button>
+      </form>
+    </div>
+
+    <!-- Right Bubble: Emotion Output -->
+    <div class="bubble-right" id="analysis-result">
+      <p><strong>Predicted Sentiment:</strong> <span id="result-sentiment">-</span></p>
+      <p><strong>Advice:</strong> <span id="result-advice">-</span></p>
+      <p><strong>Recommendation:</strong> <span id="result-recommendation">-</span></p>
+
+    </div>
+    <div class="analysis-links">
+      <a href="/static/html/calendar.html" class="bubble-link">📅 View Emotion Calendar</a>
+      <a href="/static/html/weekly_summary.html" class="bubble-link">📊 Weekly Emotion Summary</a>
+    </div>
+
+  </section>
+</main>
+
+
+  <footer class="dashboard-footer">
+    <p>Contact: <a href="mailto:gichul1017@naver.com">gichul1017@naver.com</a></p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('diary-form');
+    const textarea = document.getElementById('diary-text');
+    const dateInput = document.getElementById('entry-date');
+    const resultBox = document.getElementById('analysis-result');
+    const sentimentSpan = document.getElementById('result-sentiment');
+    const adviceSpan = document.getElementById('result-advice');
+    const recommendationSpan = document.getElementById('result-recommendation');
+
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const text = textarea.value.trim();
+      const date = dateInput.value;
+      const userId = sessionStorage.getItem("user_id") || "anonymous";
+
+      if (!text || !date) return;
+
+      try {
+        const response = await fetch("/analyze", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            text: text,
+            entry_date: date,
+            user_id: userId
+          })
+        });
+
+        const result = await response.json();
+
+        if (response.status === 409) {
+          sentimentSpan.textContent = result.emotion || "-";
+          adviceSpan.textContent = result.message || "-";
+          alert("⚠️ You've already analyzed this input for today.\nWe're showing the existing result.");
+        } else if (response.ok) {
+          sentimentSpan.textContent = result.emotion || "-";
+          adviceSpan.textContent = result.message || "-";
+          recommendationSpan.textContent = result.recommendation || "-";
+        } else {
+          alert("Emotion analysis failed. Please try again.");
+        }
+
+        resultBox.style.display = "block";
+
+      } catch (error) {
+        console.error("Emotion analysis failed:", error);
+        alert("Failed to analyze emotion. Please try again.");
+      }
+    });
+
+  </script>
+
 </body>
 </html>
