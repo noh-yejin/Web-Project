@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>EAAI - Emotion Analysis AI</title>
-  <link rel="stylesheet" href="../css/style_web.css">
+  <link rel="stylesheet" href="../css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,77 +19,45 @@
       <a href="contact.html">Contact Us</a>
       <a href="account.html">My Account</a>
     </nav>
-
   </header>
 
- <main class="main-content">
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <h1 class="main-title">Write your day, <br>we'll read your heart.</h1>
-  </section>
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1 class="main-title">Write your day, <br>we'll read your heart.</h1>
+    </section>
 
-  <!-- Message Area: Scroll target -->
-  <section class="message-area">
-    <!-- Left Bubble: Diary Input -->
-     <p class="input-label">How was your day today?</p>
-    <div class="bubble-left">
-      <form id="diary-form" method="POST">
-        <label for="entry-date">Select Date:</label>
-        <input type="date" id="entry-date" name="entry-date" required>
-        <textarea id="diary-text" name="diary-text" placeholder="Write about your day here..." required></textarea>
-        <button type="submit">Analyze Emotion</button>
-      </form>
-    </div>
+    <!-- Message Area: Scroll target -->
+    <section class="message-area">
+      <!-- Left Bubble: Diary Input -->
+      <p class="input-label">How was your day today?</p>
+      <div class="bubble-left">
+        <form id="diary-form" method="POST">
+          <label for="entry-date">Select Date:</label>
+          <input type="date" id="entry-date" name="entry-date" required>
+          <textarea id="diary-text" name="diary-text" placeholder="Write about your day here..." required></textarea>
+          <button type="submit">Analyze Emotion</button>
+        </form>
+      </div>
 
-    <!-- Right Bubble: Emotion Output -->
-    <div class="bubble-right" id="analysis-result">
-      <p><strong>Predicted Sentiment:</strong> <span id="result-sentiment">-</span></p>
-      <p><strong>Extracted Keywords:</strong> <span id="result-keywords">-</span></p>
-      <p><strong>Advice:</strong> <span id="result-advice">-</span></p>
-    </div>
-    <div class="analysis-links">
-      <a href="calendar.html" class="bubble-link">📅 View Emotion Calendar</a>
-      <a href="weekly_summary.html" class="bubble-link">📊 Weekly Emotion Summary</a>
-    </div>
+      <!-- Right Bubble: Emotion Output -->
+      <div class="bubble-right" id="analysis-result">
+        <p><strong>Predicted Sentiment:</strong> <span id="result-sentiment">-</span></p>
+        <p><strong>Extracted Keywords:</strong> <span id="result-keywords">-</span></p>
+        <p><strong>Advice:</strong> <span id="result-advice">-</span></p>
+      </div>
 
-  </section>
-</main>
-
+      <div class="analysis-links">
+        <a href="calendar.html" class="bubble-link">🗓️ View Emotion Calendar</a>
+        <a href="weekly_summary.html" class="bubble-link">📊 Weekly Emotion Summary</a>
+      </div>
+    </section>
+  </main>
 
   <footer class="dashboard-footer">
     <p>Contact: <a href="mailto:gichul1017@naver.com">gichul1017@naver.com</a></p>
   </footer>
 
-  <script>
-    const form = document.getElementById('diary-form');
-    const textarea = document.getElementById('diary-text');
-    const dateInput = document.getElementById('entry-date');
-    const resultBox = document.getElementById('analysis-result');
-    const sentimentSpan = document.getElementById('result-sentiment');
-    const keywordsSpan = document.getElementById('result-keywords');
-    const adviceSpan = document.getElementById('result-advice');
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const text = textarea.value.trim();
-      const date = dateInput.value;
-      if (!text || !date) return;
-
-      const keywords = text.split(/\s+/).filter(word => word.length >= 2).slice(0, 3);
-      const sentiments = ['Positive', 'Negative', 'Neutral'];
-      const sentiment = sentiments[Math.floor(Math.random() * 3)];
-
-      const adviceMap = {
-        'Positive': 'Keep up the great energy! 😊',
-        'Negative': 'Take a break and be kind to yourself today.',
-        'Neutral': 'Even calm days are meaningful. Appreciate yourself!'
-      };
-
-      sentimentSpan.textContent = sentiment;
-      keywordsSpan.textContent = keywords.join(', ');
-      adviceSpan.textContent = adviceMap[sentiment] || '-';
-    });
-  </script>
-
+  <script src="../js/main.js"></script>
 </body>
 </html>

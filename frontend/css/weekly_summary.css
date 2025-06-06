@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard', sans-serif;
+  background: linear-gradient(to bottom right, #dbeeff, #f0f8ff);
+}
+
+.emotion-chart-container {
+  width: 100%;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  background: white;
+  margin: 60px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.emotion-chart-container h2 {
+  text-align: center;
+  color: #007acc;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  color: #007acc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+canvas {
+  width: 100% !important;
+  height: 400px !important;
+}
