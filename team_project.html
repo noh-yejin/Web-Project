@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emotion Analysis Model</title>
+  <link rel="stylesheet" href="css/style_web.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="dashboard-header">
+    <h1>Emotion Analysis Model</h1>
+  </header>
+
+  <main class="dashboard-grid">
+  <!-- 왼쪽 위: 이용 안내 -->
+  <section class="extra-panel">
+    <h2>How to Use</h2>
+    <p>✍️ Write freely about your emotions in the journal area.</p>
+    <p>📅 Select the date first to properly store the emotion data.</p>
+    <p>🤖 Click 'Analyze Emotion' to let AI interpret your feelings.</p>
+    <p>📊 Check results and keywords in the statistics box.</p>
+    <p>📅 The emotion calendar visualizes your mood history.</p>
+  </section>
+
+  <!-- 오른쪽 위: 일기 입력 -->
+  <section class="input-panel">
+    <h2>Today's Journal</h2>
+    <form id="diary-form" method="POST">
+      <label for="entry-date">Select Date:</label>
+      <input type="date" id="entry-date" name="entry-date" required>
+      <br><br>
+      <textarea id="diary-text" name="diary-text" placeholder="Write about your day here..." required></textarea>
+      <button type="submit">Analyze Emotion</button>
+    </form>
+  </section>
+
+  <!-- 왼쪽 아래: 감정 달력 -->
+  <section class="calendar-panel">
+    <h2>Emotion Calendar <a href="calendar.html" class="calendar-expand-btn">+</a></h2>
+    <div class="calendar-header">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+    <div class="calendar-grid">
+        <div class="calendar-cell">1</div>
+        <div class="calendar-cell">2</div>
+        <div class="calendar-cell">3</div>
+        <div class="calendar-cell">4</div>
+        <div class="calendar-cell">5</div>
+        <div class="calendar-cell">6</div>
+        <div class="calendar-cell">7</div>
+        <div class="calendar-cell">8</div>
+        <div class="calendar-cell">9</div>
+        <div class="calendar-cell">10</div>
+        <div class="calendar-cell">11</div>
+        <div class="calendar-cell">12</div>
+        <div class="calendar-cell">13</div>
+        <div class="calendar-cell">14</div>
+        <div class="calendar-cell">15</div>
+        <div class="calendar-cell">16</div>
+        <div class="calendar-cell">17</div>
+        <div class="calendar-cell">18</div>
+        <div class="calendar-cell">19</div>
+        <div class="calendar-cell">20</div>
+        <div class="calendar-cell">21</div>
+        <div class="calendar-cell">22</div>
+        <div class="calendar-cell">23</div>
+        <div class="calendar-cell">24</div>
+        <div class="calendar-cell">25</div>
+        <div class="calendar-cell">26</div>
+        <div class="calendar-cell">27</div>
+        <div class="calendar-cell">28</div>
+        <div class="calendar-cell">29</div>
+        <div class="calendar-cell">30</div>
+        <div class="calendar-cell">1</div>
+        <div class="calendar-cell">2</div>
+        <div class="calendar-cell">3</div>
+        <div class="calendar-cell">4</div>
+        <div class="calendar-cell">5</div>
+    </div>
+  </section>
+
+  <!-- 오른쪽 아래: 오늘의 감정 -->
+  <section class="stats-panel">
+    <h2>Today's Emotion</h2>
+    <div class="stats-box" id="analysis-result">
+      <p>Predicted Emotion: <span id="result-sentiment">-</span></p>
+      <p>Extracted Keywords: <span id="result-keywords">-</span></p>
+      <p style="margin-top:10px; font-weight: bold; color: #007acc;">Advice 💡</p>
+      <div id="result-advice">-</div>
+      <a href="emotion.html" class="calendar-expand-btn" style="margin-top: 10px; display:inline-block;">Weekly Emotion Summary→</a>
+    </div>
+  </section>
+</main>
+
+
+  <footer class="dashboard-footer">
+    <p>Contact: <a href="mailto:emotionai@teamproject.com">emotionai@teamproject.com</a></p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('diary-form');
+    const textarea = document.getElementById('diary-text');
+    const dateInput = document.getElementById('entry-date');
+    const resultBox = document.getElementById('analysis-result');
+    const sentimentSpan = document.getElementById('result-sentiment');
+    const keywordsSpan = document.getElementById('result-keywords');
+    const advicePara = document.getElementById('result-advice');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const text = textarea.value.trim();
+      const date = dateInput.value;
+      if (!text || !date) return;
+
+      const keywords = text.split(/\s+/).filter(word => word.length >= 2).slice(0, 3);
+      const sentiments = ['Positive', 'Negative', 'Neutral'];
+      const sentiment = sentiments[Math.floor(Math.random() * 3)];
+
+      const adviceMap = {
+        'Positive': 'Keep up the great energy! 😊',
+        'Negative': 'Take a break and be kind to yourself today.',
+        'Neutral': 'Even calm days are meaningful. Appreciate yourself!'
+      };
+
+      sentimentSpan.textContent = sentiment;
+      keywordsSpan.textContent = keywords.join(', ');
+      advicePara.textContent = adviceMap[sentiment] || '-';
+      resultBox.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
