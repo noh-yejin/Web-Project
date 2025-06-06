@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How to Use - EAAI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+  <style>
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: auto;
+    }
+
+    .logo-text {
+      font-size: 24px;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+      color: #070f14;
+    }
+
+    .howto-container {
+      max-width: 800px;
+      margin: 60px auto;
+      background: white;
+      padding: 48px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      font-family: 'Spoqa Han Sans Neo', sans-serif;
+    }
+
+    .howto-container h1 {
+      color: #005fa3;
+      font-size: 40px;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .howto-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .howto-step span.icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .howto-step p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .howto-step p strong {
+      color: #0082df;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 70px;
+      color: #005fa3;
+      text-decoration: none;
+      font-size: 16px;
+      font-family: 'Spoqa Han Sans Neo', sans-serif;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 600px) {
+      .howto-container {
+        padding: 32px 24px;
+      }
+
+      .howto-container h1 {
+        font-size: 24px;
+      }
+
+      .howto-step p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header class="main-header">
+    <div class="logo-area">
+      <img src="/static/img/eaai_icon.png" alt="EAAI Logo" class="logo-img">
+      <span class="logo-text">EAAI</span>
+    </div>
+  </header>
+
+  <div class="howto-container">
+    <h1>How to Use EAAI</h1>
+
+    <div class="howto-step">
+      <span class="icon">✍️</span>
+      <p>Feel free to jot down your thoughts in the journal. It’s the first step toward understanding your emotions.</p>
+    </div>
+
+    <div class="howto-step">
+      <span class="icon">📅</span>
+      <p>Choosing the <strong>right date</strong> helps us keep track of your emotions <strong>more accurately.</strong></p>
+    </div>
+
+    <div class="howto-step">
+      <span class="icon">🤖</span>
+      <p>Click on the <strong>"Analyze Emotion"</strong> button to let our AI interpret your diary entry.</p>
+    </div>
+
+    <div class="howto-step">
+      <span class="icon">📊</span>
+      <p>We provide the <strong>emotions</strong> from your diary, <strong>personalized advice</strong>, and <strong>recommendations based on that advice.</strong></p>
+    </div>
+
+    <div class="howto-step">
+      <span class="icon">📅</span>
+      <p>Use the <strong>Emotion Calendar</strong> to track your mood trends over time.</p>
+    </div>
+
+    <a class="back-link" href="/static/html/main.html">← Back to Home</a>
+  </div>
+</body>
+</html>

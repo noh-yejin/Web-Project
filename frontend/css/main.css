@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Pretendard', sans-serif;
-  background: url('/static/img/main_background.jpg') no-repeat center center fixed;
+  background: url('/static/img/main_background.jpg') no-repeat center center scroll;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -44,8 +44,9 @@ body {
   text-decoration: none;
   color: #007acc;
   font-weight: bold;
+  font-family: 'SUIT', sans-serif;
   margin-left: 20px;
-  font-size: 16px;
+  font-size: 20px;
   transition: color 0.3s;
 }
 
@@ -53,24 +54,31 @@ body {
   color: #005f99;
 }
 
+
 .hero-section {
-  height: 70vh; /* 화면 전체 높이 */
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center;   */
+  align-items: center;    
+  min-height: calc(100vh - 200px); 
   text-align: center;
-  padding-top: 80px;
+  padding: 20px;
+  margin-top:200px;
+  
 }
 
 .main-title {
-  font-size: 46px;
+  font-size: 70px;
+  font-family: 'SUIT', sans-serif;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
   color: #003f5c;
   text-align: center;
 }
-
+/* 
 .message-area {
-  padding-top: 100px; /* 스크롤 후 여유 공간 */
-}
+  padding-top: 100px;
+} */
 
 .main-content {
   flex-grow: 1;
@@ -88,12 +96,17 @@ body {
   width: 100%;
   max-width: 900px;
   gap: 30px;
+  /* font-family: 'SUIT', sans-serif; */
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .input-label {
-  font-size: 32px;
-  color: #03090b;
-  font-weight: 500;
+  font-size: 35px;
+  color: #ffffff;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  font-weight: 600;
   margin-bottom: 4px;
   margin-left: 4px;
 }
@@ -132,6 +145,7 @@ textarea {
   height: 100px;
   padding: 12px;
   font-size: 16px;
+  font-family: 'SUIT', sans-serif;
   border: 1px solid #ccc;
   border-radius: 8px;
   resize: none;
@@ -147,6 +161,7 @@ textarea:focus {
 input[type="date"] {
   padding: 8px 12px;
   font-size: 14px;
+  font-family: 'SUIT', sans-serif;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
@@ -159,6 +174,7 @@ button {
   border: none;
   border-radius: 8px;
   font-size: 15px;
+  font-family: 'SUIT', sans-serif;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -168,10 +184,11 @@ button:hover {
 }
 
 /* Right Bubble - Output */
+
 .bubble-right {
   align-self: flex-end;
   background-color: #f0faff;
-  border-right: 8px solid #2ecc71;
+  border-right: 8px solid #007acc;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -191,7 +208,23 @@ button:hover {
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 12px solid #2ecc71;
+  border-left: 12px solid #007acc;
+}
+.bubble-right-wrapper {
+  display: flex;
+  align-items: flex-start; 
+  gap: 12px;              
+  align-self: flex-end;   
+  margin-top: 20px;
+  width: 70%;
+}
+
+.bubble-side-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;        
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .analysis-links {
@@ -200,6 +233,7 @@ button:hover {
   gap: 10px;
   margin-top: auto;
   margin-left: auto;
+  margin-right: 160px;
 }
 
 .bubble-link {
@@ -208,7 +242,8 @@ button:hover {
   padding: 10px 16px;
   border-radius: 8px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: 'SUIT', sans-serif;
   white-space: nowrap;
   transition: background-color 0.3s;
 }
@@ -217,15 +252,6 @@ button:hover {
   background-color: #005f99;
 }
 
-/* Footer */
-.dashboard-footer {
-  text-align: center;
-  font-size: 13px;
-  color: #888;
-  padding: 20px 0;
-  background: white;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
-}
 
 /* Responsive */
 @media (max-width: 768px) {

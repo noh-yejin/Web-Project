@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -32,6 +32,219 @@
 <div class="right-section">
   <div class="speech-bubble bubble2">💬 Second text</div>
   <div class="speech-bubble bubble3">📱 Third text</div>
+</div>
+
+<script src="/static/js/login.js"></script>
+</body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - EAAI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+      background-color: #ffffff;
+    }
+
+    .left-section,
+    .right-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .left-section {
+      background: #fff;
+    }
+
+    .right-section {
+      background: url('/static/img/talking.png') no-repeat center center;
+      background-size: cover;
+      position: relative;
+    }
+
+    .login-container {
+      background: #fff;
+      border-radius: 16px;
+      padding: 60px 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .eaai-text {
+      font-size: 64px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+
+    .login-container img.main-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 12px;
+    }
+
+    .login-container h1 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .login-container p {
+      font-size: 13px;
+      margin-bottom: 16px;
+      color: #7f8c8d;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 80%;
+      padding: 10px;
+      margin: 5px 0;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #f9fafb;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #2980b9;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .signup-section {
+      margin-top: 15px;
+    }
+
+    .signup-section p {
+      font-size: 12px;
+      color: #7f8c8d;
+    }
+
+    .signup-section button {
+      background: none;
+      color: #2980b9;
+      border: none;
+      padding: 6px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .speech-bubble {
+      position: absolute;
+      max-width: 220px;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.8);
+      color: #333;
+      font-size: 14px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 12px;
+    }
+
+    .bubble2 {
+      top: 36%;
+      left: 5%;
+    }
+
+    .bubble3 {
+      top: 60%;
+      left: 37%;
+    }
+
+    /* ✅ 반응형 */
+    @media (max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+
+      .left-section,
+      .right-section {
+        width: 100%;
+        flex: none;
+        padding: 20px;
+      }
+
+      .eaai-text {
+        font-size: 48px;
+      }
+
+      .right-section {
+        background-position: center top;
+        min-height: 200px;
+        justify-content: flex-start;
+        flex-direction: column;
+      }
+
+      .speech-bubble {
+        position: static;
+        margin: 10px auto;
+        background: rgba(255, 255, 255, 0.95);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="left-section">
+  <div class="login-container">
+    <div class="eaai-text">EAAI</div>
+    <img src="/static/img/emotion.png" alt="Emotion character image" class="main-img">
+    <h1>WELCOME TO EAAI !</h1>
+    <p>We analyze your emotions to offer you a better tomorrow.</p>
+
+    <form id="login-form">
+      <input type="text" id="login-id" placeholder="User ID" required autocomplete="off">
+      <input type="password" id="login-pw" placeholder="Password" required autocomplete="off">
+      <button type="button" id="login-btn">Login</button>
+    </form>
+
+    <div class="signup-section">
+      <p>Don't have an account yet?</p>
+      <button onclick="location.href='/static/html/signup.html'">Sign Up</button>
+    </div>
+  </div>
+</div>
+
+<div class="right-section">
+  <div class="speech-bubble bubble2">Your feelings matter - we’re here to listen.</div>
+  <div class="speech-bubble bubble3">In joy or sorrow, we’re by your side, decoding what you feel.</div>
 </div>
 
 <script src="/static/js/login.js"></script>
