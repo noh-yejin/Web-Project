@@ -100,7 +100,7 @@ async def analyze(request: Request):
         gpt_response = requests.post(
             "https://openrouter.ai/api/v1/chat/completions",
             headers={
-                "Authorization": "Bearer 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",   #Bearer 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
+                "Authorization": "Bearer ",   
                 "Content-Type": "application/json"
             },
             json={
