@@ -5,47 +5,7 @@
   <title>Emotion Trend This Week</title>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-      font-family: 'Pretendard', sans-serif;
-      background: linear-gradient(to bottom right, #dbeeff, #f0f8ff);
-      padding: 40px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      text-align: center;
-      color: #007acc;
-    }
-
-    #emotion-comment {
-      margin-top: 24px;
-      text-align: center;
-      font-size: 18px;
-      color: #333;
-    }
-
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 40px;
-      color: #007acc;
-      text-decoration: none;
-    }
-
-    canvas {
-      width: 100% !important;
-      height: 400px !important;
-    }
-  </style>
+  <link href="/static/css/weekly_summary.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -54,69 +14,6 @@
     <div id="emotion-comment"></div>
     <a class="back-link" href="/static/html/main.html">← Back to Dashboard</a>
   </div>
-
-  <script>
-    async function fetchData() {
-      const userId = sessionStorage.getItem("user_id");
-      if (!userId) {
-        alert("Login required.");
-        window.location.href = "/static/html/login.html";
-        return;
-      }
-
-      const res = await fetch(`/weekly_emotions?user_id=${userId}`);
-      return await res.json();
-    }
-
-    function renderChart(labels, scores) {
-      const ctx = document.getElementById("emotionChart").getContext("2d");
-
-      const backgroundColors = scores.map(score => {
-        if (score === 2) return "#2ecc71";
-        if (score === 1) return "#f1c40f";
-        if (score === 0) return "#95a5a6";
-        if (score === -1) return "#e67e22";
-        if (score === -2) return "#e74c3c";
-        return "#bdc3c7";
-      });
-
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: "Emotion Score",
-            data: scores,
-            backgroundColor: backgroundColors,
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            y: {
-              min: -2,
-              max: 2,
-              ticks: {
-                stepSize: 1,
-                callback: val => ({ "-2": "😢", "-1": "😟", "0": "😐", "1": "🙂", "2": "😄" }[val] || val)
-              }
-            }
-          },
-          plugins: {
-            legend: { display: false }
-          }
-        }
-      });
-    }
-
-    async function init() {
-      const { labels, scores, message } = await fetchData();
-      renderChart(labels, scores);
-      document.getElementById("emotion-comment").textContent = message;
-    }
-
-    init();
-  </script>
+<script src="/static/js/weekly_summary.js"></script>
 </body>
 </html>

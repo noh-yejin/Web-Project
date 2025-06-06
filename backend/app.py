@@ -160,7 +160,7 @@ async def analyze(request: Request):
         gpt_response = requests.post(
             "https://openrouter.ai/api/v1/chat/completions",
             headers={
-                "Authorization": "Bearer ~~",
+                "Authorization":"Bearer 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",
                 "Content-Type": "application/json"
             },
             json={
@@ -273,7 +273,7 @@ def classify_emotion(emotion_label: str) -> int:
     response = requests.post(
         "https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization":"Bearer ~~", 
+            "Authorization":"Bearer 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",
             "Content-Type": "application/json"
         },
         json={
@@ -356,7 +356,7 @@ def generate_daily_trend_message(scores: list) -> str:
         response = requests.post(
             "https://openrouter.ai/api/v1/chat/completions",
             headers={
-                "Authorization": "Bearer ~~", 
+                "Authorization":"Bearer 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",
                 "Content-Type": "application/json"
             },
             json={

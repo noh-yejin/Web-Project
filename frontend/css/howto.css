@@ -1,0 +1,91 @@
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+}
+
+.logo-text {
+    font-size: 24px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    color: #070f14;
+}
+
+.howto-container {
+    max-width: 800px;
+    margin: 60px auto;
+    background: white;
+    padding: 48px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    font-family: 'Spoqa Han Sans Neo', sans-serif;
+}
+
+.howto-container h1 {
+    color: #005fa3;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.howto-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.howto-step span.icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.howto-step p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.howto-step p strong {
+    color: #0082df;
+}
+
+.back-link {
+    display: block;
+    margin-top: 70px;
+    color: #005fa3;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Spoqa Han Sans Neo', sans-serif;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+    .howto-container {
+    padding: 32px 24px;
+    }
+
+    .howto-container h1 {
+    font-size: 24px;
+    }
+
+    .howto-step p {
+    font-size: 16px;
+    }
+}

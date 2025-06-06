@@ -1,0 +1,40 @@
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background: linear-gradient(to bottom right, #dbeeff, #f0f8ff);
+    padding: 40px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #007acc;
+}
+
+#emotion-comment {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+    color: #007acc;
+    text-decoration: none;
+}
+
+canvas {
+    width: 100% !important;
+    height: 400px !important;
+}

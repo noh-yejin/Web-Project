@@ -6,97 +6,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
-  <style>
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo-img {
-      width: 50px;
-      height: auto;
-    }
-
-    .logo-text {
-      font-size: 24px;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-      font-weight: bold;
-      color: #070f14;
-    }
-
-    .avatar-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%; 
-      object-fit: cover;
-      display: block;
-      margin: 0 auto 40px auto; 
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .account-section {
-      max-width: 600px;
-      margin: 80px auto;
-      background-color: #ffffffdd;
-      padding: 32px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .account-section h2 {
-      color: #005fa3;
-      margin-bottom: 60px;
-      font-size: 40px;
-      font-weight: bold;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
-      margin-bottom: 60px;
-      text-align: center;
-      font-family: 'Spoqa Han Sans Neo', sans-serif;
-    }
-
-    .account-info {
-      font-size: 18px;
-      color: #333;
-      margin-bottom: 20px;
-      text-align: center;
-      font-family: 'Spoqa Han Sans Neo', sans-serif;
-    }
-
-    .account-info span {
-      font-weight: bold;
-      color: #005f99;
-    }
-
-    .delete-btn {
-      display: block;
-      margin: 100px auto 0 auto;  
-      background-color: #e74c3c;
-      color: white;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .delete-btn:hover {
-      background-color: #c0392b;
-    }
-
-    .back-link {
-      display: block;
-      margin-top: 70px; 
-      font-size: 16px;
-      color: #005fa3;
-      text-decoration: none;
-      font-family: 'Spoqa Han Sans Neo', sans-serif;
-    }
-  </style>
+  <link rel="stylesheet" href="/static/css/account.css">
 </head>
 <body>
 
@@ -120,57 +30,7 @@
       <a href="/static/html/main.html" class="back-link">← Back to Home</a>
     </div>
   </main>
-  <script>
-    document.addEventListener('DOMContentLoaded', async function () {
-      const userId = sessionStorage.getItem("user_id");
-
-      if (!userId) {
-        alert("User not logged in.");
-        window.location.href = "/static/html/login.html";
-        return;
-      }
-
-      try {
-        const response = await fetch(`/users/${userId}`);
-        const data = await response.json();
-
-        if (response.ok) {
-          document.getElementById("user-id").textContent = data.user_id || "-";
-          document.getElementById("user-email").textContent = data.email || "-";
-          document.getElementById("signup-date").textContent = data.signup_date || "-";
-        } else {
-          alert("Failed to load user information.");
-        }
-      } catch (error) {
-        console.error("Error fetching user info:", error);
-        alert("Error loading account information.");
-      }
-
-      // ❌ 계정 삭제 버튼
-      document.querySelector(".delete-btn").addEventListener("click", async () => {
-        if (!confirm("Are you sure you want to delete your account? This action cannot be undone.")) return;
-
-        try {
-          const deleteResponse = await fetch(`/users/${userId}`, {
-            method: "DELETE"
-          });
-
-          if (deleteResponse.ok) {
-            alert("Account deleted successfully.");
-            sessionStorage.clear();
-            window.location.href = "/static/html/login.html";
-          } else {
-            alert("Failed to delete account.");
-          }
-        } catch (error) {
-          console.error("Delete error:", error);
-          alert("An error occurred while deleting your account.");
-        }
-      });
-    });
-  </script>
-
-  
+<script src="/static/js/account.js"></script>
 
 </body>
 </html>
