@@ -1,22 +1,25 @@
-
+/* 공통 설정 / Global Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* 전체 배경 및 글꼴 / Global Body */
 body {
   font-family: 'Spoqa Han Sans Neo', sans-serif;
   background-color: #f4f4f4;
   min-height: 100vh;
 }
 
+/* 컨테이너 / Container */
 .container {
   display: flex;
   flex-direction: row;
   height: 100vh;
 }
 
+/* 좌측 패널 / Left Panel */
 .left-panel {
   width: 50%;
   background-color: #ffffff;
@@ -30,13 +33,14 @@ body {
 }
 
 .left-image {
-  margin-top:20px;
+  margin-top: 20px;
   width: 100%;
   max-width: 500px;
   height: auto;
   object-fit: contain;
 }
 
+/* 좌측 텍스트 박스 / Left Overlay Text */
 .overlay {
   background: rgba(0, 0, 0, 0.6);
   padding: 24px;
@@ -55,6 +59,7 @@ body {
   line-height: 1.5;
 }
 
+/* 우측 패널 / Right Panel */
 .right-panel {
   width: 50%;
   background-color: rgb(189, 231, 248);
@@ -73,6 +78,7 @@ body {
   text-align: center;
 }
 
+/* 폼 스타일 / Form Layout */
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -98,6 +104,7 @@ label {
   color: #525252;
 }
 
+/* 입력 필드 / Input Fields */
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -109,6 +116,7 @@ select {
   font-family: 'Spoqa Han Sans Neo', sans-serif;
 }
 
+/* 비밀번호 토글 / Password Toggle Button */
 .toggle-password {
   position: absolute;
   right: 10px;
@@ -120,6 +128,7 @@ select {
   cursor: pointer;
 }
 
+/* 체크박스 그룹 / Checkbox */
 .checkbox-group {
   grid-column: span 2;
   display: flex;
@@ -130,6 +139,7 @@ select {
   margin-right: 10px;
 }
 
+/* 버튼 / Buttons */
 button {
   grid-column: span 2;
   padding: 14px;
@@ -148,6 +158,7 @@ button:hover {
   background-color: #0353e9;
 }
 
+/* 뒤로가기 버튼 / Back Button */
 .back-button {
   background-color: #d0d0d0;
   color: #333;
@@ -157,6 +168,7 @@ button:hover {
   background-color: #b0b0b0;
 }
 
+/* 아이디 중복 확인 메시지 / Info Message */
 .info-text {
   font-family: 'Spoqa Han Sans Neo', sans-serif;
   font-size: 12px;
@@ -164,6 +176,7 @@ button:hover {
   color: #333;
 }
 
+/* 반응형 디자인 / Responsive */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;

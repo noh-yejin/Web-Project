@@ -1,40 +1,45 @@
-
+/* 전체 배경 및 글꼴 설정 / Body and Font */
 body {
-    font-family: 'Pretendard', sans-serif;
-    background: linear-gradient(to bottom right, #dbeeff, #f0f8ff);
-    padding: 40px;
+    font-family: 'Pretendard', sans-serif; /* 본문 폰트 / Main font */
+    background: linear-gradient(to bottom right, #dbeeff, #f0f8ff); /* 배경 그라디언트 / Background gradient */
+    padding: 40px; /* 여백 / Padding */
 }
 
+/* 메인 컨테이너 / Main Container */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 800px; /* 최대 너비 / Max width */
+    margin: 0 auto; /* 가운데 정렬 / Center alignment */
+    background: white; /* 배경색 / Background color */
+    padding: 30px; /* 내부 여백 / Padding */
+    border-radius: 12px; /* 모서리 둥글게 / Rounded corners */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 그림자 효과 / Shadow effect */
 }
 
+/* 제목 스타일 / Title Style */
 h2 {
-    text-align: center;
-    color: #007acc;
+    text-align: center; /* 가운데 정렬 / Center alignment */
+    color: #007acc; /* 글자색 / Text color */
 }
 
+/* 감정 해석 텍스트 / Emotion Comment */
 #emotion-comment {
-    margin-top: 24px;
-    text-align: center;
-    font-size: 18px;
-    color: #333;
+    margin-top: 24px; /* 위쪽 여백 / Top margin */
+    text-align: center; /* 가운데 정렬 / Centered text */
+    font-size: 18px; /* 글자 크기 / Font size */
+    color: #333; /* 글자색 / Text color */
 }
 
+/* 돌아가기 링크 / Back Link */
 .back-link {
-    display: block;
-    text-align: center;
-    margin-top: 40px;
-    color: #007acc;
-    text-decoration: none;
+    display: block; /* 블록 요소로 설정 / Block display */
+    text-align: center; /* 가운데 정렬 / Centered text */
+    margin-top: 40px; /* 위쪽 여백 / Top margin */
+    color: #007acc; /* 링크 색상 / Link color */
+    text-decoration: none; /* 밑줄 제거 / No underline */
 }
 
+/* 차트 캔버스 설정 / Chart Canvas */
 canvas {
-    width: 100% !important;
-    height: 400px !important;
+    width: 100% !important; /* 전체 너비 / Full width */
+    height: 400px !important; /* 고정 높이 / Fixed height */
 }

@@ -4,13 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EAAI Signup</title>
+  <!-- 웹폰트 로딩 / Load web fonts -->
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+  <!-- 회원가입 스타일 / Signup page CSS -->
   <link rel="stylesheet" href="/static/css/signup.css" />
 </head>
 <body>
+
+  <!-- 회원가입 페이지 레이아웃 / Signup layout -->
   <div class="container">
+
+    <!-- 좌측 패널: 환영 메시지 / Left panel: Welcome message -->
     <div class="left-panel">
       <img src="/static/img/eaai.png" alt="EAAI" class="left-image" />
       <div class="overlay">
@@ -18,27 +24,34 @@
         <p>Our emotion analysis service celebrates your happiness and eases your sorrow. Understanding the sincerity of your feelings—that's where we begin.</p>
       </div>
     </div>
+
+    <!-- 우측 패널: 입력 폼 / Right panel: Signup form -->
     <div class="right-panel">
       <h2>Create your EAAI Account</h2>
       <form id="signup-form">
+
+        <!-- 아이디 입력 / ID input -->
         <div class="form-group full">
           <label for="signup-id">ID</label>
           <input type="text" id="signup-id" name="username" placeholder="Enter your ID" required />
           <div id="id-check-result" class="info-text"></div>
         </div>
 
+        <!-- 비밀번호 입력 / Password input -->
         <div class="form-group">
           <label for="signup-pw">Password</label>
           <input type="password" id="signup-pw" name="password" required />
           <button type="button" id="pw-toggle-btn" class="toggle-password" onclick="togglePassword('signup-pw', this)">🙉</button>
         </div>
 
+        <!-- 비밀번호 확인 / Confirm password -->
         <div class="form-group">
           <label for="signup-pw-confirm">Confirm Password</label>
           <input type="password" id="signup-pw-confirm" name="confirm-password" required />
           <button type="button" id="pw-confirm-toggle-btn" class="toggle-password" onclick="togglePassword('signup-pw-confirm', this)">🙉</button>
         </div>
 
+        <!-- 성별 선택 / Gender selection -->
         <div class="form-group full">
           <label for="signup-gender">Gender</label>
           <select id="signup-gender" name="gender">
@@ -49,6 +62,7 @@
           </select>
         </div>
 
+        <!-- 이메일 입력 / Email input -->
         <div class="form-group">
           <label for="signup-email-id">Email Address</label>
           <input type="text" id="signup-email-id" placeholder="Email ID" required />
@@ -63,18 +77,24 @@
           </select>
         </div>
 
+        <!-- 최종 이메일 값 / Final email value (hidden) -->
         <input type="hidden" id="signup-email-final" name="signup-email-final" />
 
+        <!-- 마케팅 수신 동의 / Marketing agreement -->
         <div class="checkbox-group">
           <input type="checkbox" id="signup-marketing" name="marketing" />
           <label for="signup-marketing">I agree to receive advertising and marketing</label>
         </div>
 
+        <!-- 계정 생성 및 뒤로가기 버튼 / Signup and back buttons -->
         <button type="button" id="signup-btn">Create Account</button>
         <button type="button" class="back-button" onclick="location.href='/static/html/login.html'">Back to Login</button>
+
       </form>
     </div>
   </div>
+
+  <!-- 회원가입 스크립트 / Signup script -->
   <script src="/static/js/signup.js"></script>
 </body>
 </html>

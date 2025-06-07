@@ -1,4 +1,4 @@
-/* Base Layout */
+/* 기본 레이아웃 / Base Layout */
 body {
   margin: 0;
   padding: 0;
@@ -10,6 +10,7 @@ body {
   flex-direction: column;
 }
 
+/* 상단 헤더 / Header */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -19,6 +20,7 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
+/* 로고 영역 / Logo Area */
 .logo-area {
   display: flex;
   align-items: center;
@@ -40,6 +42,7 @@ body {
   color: #070f14;
 }
 
+/* 네비게이션 / Navigation */
 .main-nav a {
   text-decoration: none;
   color: #007acc;
@@ -54,17 +57,15 @@ body {
   color: #005f99;
 }
 
-
+/* 히어로 섹션 / Hero Section */
 .hero-section {
   display: flex;
   flex-direction: column;
-  /* justify-content: center;   */
-  align-items: center;    
-  min-height: calc(100vh - 200px); 
+  align-items: center;
+  min-height: calc(100vh - 200px);
   text-align: center;
   padding: 20px;
-  margin-top:200px;
-  
+  margin-top: 200px;
 }
 
 .main-title {
@@ -75,11 +76,8 @@ body {
   color: #003f5c;
   text-align: center;
 }
-/* 
-.message-area {
-  padding-top: 100px;
-} */
 
+/* 메인 콘텐츠 / Main Content */
 .main-content {
   flex-grow: 1;
   padding: 40px 20px;
@@ -88,7 +86,7 @@ body {
   align-items: center;
 }
 
-/* Message Area */
+/* 메시지 영역 / Message Area */
 .message-area {
   display: flex;
   flex-direction: column;
@@ -96,7 +94,6 @@ body {
   width: 100%;
   max-width: 900px;
   gap: 30px;
-  /* font-family: 'SUIT', sans-serif; */
   font-family: 'Spoqa Han Sans Neo', sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -105,13 +102,12 @@ body {
 .input-label {
   font-size: 35px;
   color: #ffffff;
-  font-family: 'Spoqa Han Sans Neo', sans-serif;
   font-weight: 600;
   margin-bottom: 4px;
   margin-left: 4px;
 }
 
-/* Left Bubble - Input */
+/* 왼쪽 버블 - 입력 / Left Bubble (Input) */
 .bubble-left {
   background-color: #ffffff;
   border-left: 8px solid #007acc;
@@ -183,8 +179,7 @@ button:hover {
   background-color: #005f99;
 }
 
-/* Right Bubble - Output */
-
+/* 오른쪽 버블 - 출력 / Right Bubble (Output) */
 .bubble-right {
   align-self: flex-end;
   background-color: #f0faff;
@@ -210,11 +205,12 @@ button:hover {
   border-bottom: 10px solid transparent;
   border-left: 12px solid #007acc;
 }
+
 .bubble-right-wrapper {
   display: flex;
-  align-items: flex-start; 
-  gap: 12px;              
-  align-self: flex-end;   
+  align-items: flex-start;
+  gap: 12px;
+  align-self: flex-end;
   margin-top: 20px;
   width: 70%;
 }
@@ -222,11 +218,12 @@ button:hover {
 .bubble-side-img {
   width: 150px;
   height: 150px;
-  border-radius: 50%;        
+  border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* 분석 링크 / Analysis Links */
 .analysis-links {
   display: flex;
   justify-content: flex-end;
@@ -252,8 +249,7 @@ button:hover {
   background-color: #005f99;
 }
 
-
-/* Responsive */
+/* 반응형 대응 / Responsive Design */
 @media (max-width: 768px) {
   .message-area {
     align-items: center;
@@ -263,4 +259,4 @@ button:hover {
   .bubble-right {
     width: 90%;
   }
-} 
+}

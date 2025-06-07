@@ -1,10 +1,14 @@
+// 회원가입 페이지 로드 시 이벤트 실행
+// Run when the signup page is fully loaded
 document.addEventListener('DOMContentLoaded', function () {
   const emailDomainSelect = document.getElementById('signup-email-domain');
   const emailFinalInput = document.getElementById('signup-email-final');
   const emailDomainCustom = document.createElement('input');
   const now = new Date();
-  const signupDate = now.toISOString().split('T')[0];
+  const signupDate = now.toISOString().split('T')[0]; // 오늘 날짜 YYYY-MM-DD 형식 / Signup date
 
+  // 사용자 정의 이메일 도메인 입력란 설정
+  // Configure custom email domain input box
   emailDomainCustom.type = 'text';
   emailDomainCustom.id = 'signup-email-domain-custom';
   emailDomainCustom.placeholder = 'Custom input';
@@ -18,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let isCustomDomain = false;
 
+  // 이메일 도메인 변경 시 사용자 정의 입력 활성화
+  // Enable custom domain input when "self" is selected
   emailDomainSelect.addEventListener('change', function () {
     if (this.value === 'self' && !isCustomDomain) {
       this.replaceWith(emailDomainCustom);
@@ -25,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // 아이디 중복 검사
+  // Check for duplicate user ID in real-time
   document.getElementById('signup-id').addEventListener('input', async function () {
     const inputId = this.value.trim();
     const resultDiv = document.getElementById('id-check-result');
@@ -40,11 +48,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (response.ok) {
         resultDiv.textContent = result.exists
-          ? 'This username is already taken.'
-          : 'This username is available.';
+          ? 'This username is already taken.'      // 이미 존재하는 아이디
+          : 'This username is available.'          // 사용 가능한 아이디
         resultDiv.style.color = result.exists ? 'red' : 'green';
       } else {
-        resultDiv.textContent = 'Error checking ID.';
+        resultDiv.textContent = 'Error checking ID.'; // 서버 오류
         resultDiv.style.color = 'orange';
       }
     } catch (error) {
@@ -54,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // 비밀번호 확인 메시지 설정
+  // Password confirmation check message
   const pwInput = document.getElementById('signup-pw');
   const pwConfirmInput = document.getElementById('signup-pw-confirm');
   const pwCheckResult = document.createElement('div');
@@ -71,22 +81,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (pw === pwConfirm) {
-      pwCheckResult.textContent = 'Passwords match.';
+      pwCheckResult.textContent = 'Passwords match.';       // 일치함
       pwCheckResult.style.color = 'green';
     } else {
-      pwCheckResult.textContent = 'Passwords do not match.';
+      pwCheckResult.textContent = 'Passwords do not match.'; // 불일치
       pwCheckResult.style.color = 'red';
     }
   }
 
+  // 비밀번호 보이기/숨기기 토글
+  // Toggle password visibility
   function togglePassword(id, button) {
     const input = document.getElementById(id);
     const isVisible = input.type === 'text';
     input.type = isVisible ? 'password' : 'text';
-    button.textContent = isVisible ? '🙉' : '🙈';
+    button.textContent = isVisible ? '🙉' : '🙈'; // 이모지로 상태 표시
   }
 
-  // ✅ 바로 연결
   const pwBtn = document.getElementById('pw-toggle-btn');
   const pwConfirmBtn = document.getElementById('pw-confirm-toggle-btn');
 
@@ -105,6 +116,8 @@ document.addEventListener('DOMContentLoaded', function () {
   pwInput.addEventListener('input', checkPasswordMatch);
   pwConfirmInput.addEventListener('input', checkPasswordMatch);
 
+  // 회원가입 요청 전송
+  // Submit signup form
   document.getElementById('signup-btn').addEventListener('click', async function () {
     const id = document.getElementById('signup-id').value.trim();
     const pw = pwInput.value.trim();
@@ -146,10 +159,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const result = await response.json();
 
       if (response.ok) {
-        alert('Signup completed successfully!');
+        alert('Signup completed successfully!'); // 회원가입 성공
         location.href = '/static/html/login.html';
       } else {
-        alert('Signup failed: ' + result.message);
+        alert('Signup failed: ' + result.message); // 실패 메시지
       }
     } catch (error) {
       console.error('Signup error:', error);
