@@ -3,17 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Emotion Trend This Week</title>
+  <!-- 웹폰트 로딩 / Load web font -->
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
+  <!-- Chart.js 로딩 / Load Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- 주간 요약 스타일 / Weekly summary CSS -->
   <link href="/static/css/weekly_summary.css" rel="stylesheet">
 </head>
 <body>
+
+  <!-- 감정 추세 요약 / Weekly emotion trend summary -->
   <div class="container">
     <h2>This Week's Emotion Trend</h2>
-    <canvas id="emotionChart"></canvas>
-    <div id="emotion-comment"></div>
-    <a class="back-link" href="/static/html/main.html">← Back to Dashboard</a>
+    <canvas id="emotionChart"></canvas> <!-- 감정 점수 차트 / Emotion score chart -->
+    <div id="emotion-comment"></div> <!-- 분석 코멘트 / Trend interpretation message -->
+    <a class="back-link" href="/static/html/main.html">← Back to Dashboard</a> <!-- 대시보드로 이동 / Back to dashboard -->
   </div>
-<script src="/static/js/weekly_summary.js"></script>
+
+  <!-- 주간 감정 분석 스크립트 / Weekly analysis script -->
+  <script src="/static/js/weekly_summary.js"></script>
 </body>
 </html>

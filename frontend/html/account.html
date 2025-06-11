@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>My Account - EAAI</title>
+  <!-- 웹폰트 로딩 / Load web fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+  <!-- 계정 페이지 스타일 / Link account page CSS -->
   <link rel="stylesheet" href="/static/css/account.css">
 </head>
 <body>
 
+  <!-- 로고 헤더 / Logo header -->
   <header class="main-header">
     <div class="logo-area">
       <img src="/static/img/eaai_icon.png" alt="EAAI Logo" class="logo-img">
@@ -17,6 +20,7 @@
     </div>
   </header>
 
+  <!-- 계정 정보 섹션 / Account info section -->
   <main>
     <div class="account-section">
       <h2>My Account</h2>
@@ -26,11 +30,15 @@
       <div class="account-info"><strong>Email: </strong><span id="user-email"></span></div>
       <div class="account-info"><strong>Sign-up Date:</strong><span id="signup-date"></span></div>
 
+      <!-- 계정 삭제 버튼 / Delete account button -->
       <button class="delete-btn">Delete My Account</button>
+      <!-- 홈으로 이동 / Back to home -->
       <a href="/static/html/main.html" class="back-link">← Back to Home</a>
     </div>
   </main>
-<script src="/static/js/account.js"></script>
+
+  <!-- 계정 관련 스크립트 / Account page script -->
+  <script src="/static/js/account.js"></script>
 
 </body>
 </html>

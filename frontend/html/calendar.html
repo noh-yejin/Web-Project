@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Emotions Calendar</title>
+  <!-- 웹폰트 로딩 / Load web fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+  <!-- 캘린더 스타일 / Calendar page CSS -->
   <link rel="stylesheet" href="/static/css/calendar.css">
 </head>
 <body>
 
+  <!-- 페이지 제목 / Page title -->
   <h1>Emotions Calendar</h1>
 
+  <!-- 연도/월 선택 / Year and month selector -->
   <div class="controls">
     <label for="year-select"><strong>Year:</strong></label>
     <select id="year-select"></select>
@@ -19,6 +23,7 @@
     <select id="month-select"></select>
   </div>
 
+  <!-- 달력 그리드 / Calendar grid -->
   <div class="calendar-container">
     <div class="calendar-header">
       <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
@@ -26,10 +31,12 @@
     <div class="calendar-grid" id="calendar-grid"></div>
   </div>
 
+  <!-- 홈으로 이동 / Back to home -->
   <div style="text-align: center">
     <a class="back-btn" href="/static/html/main.html">← Back to Home</a>
   </div>
 
-<script src="/static/js/calendar.js"></script>
+  <!-- 스크립트 연결 / Link to calendar script -->
+  <script src="/static/js/calendar.js"></script>
 </body>
 </html>

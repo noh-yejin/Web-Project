@@ -1,10 +1,11 @@
-
+/* 전체 초기화 및 박스 모델 / Global reset and box model */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* 바디 스타일 / Body style */
 body {
     font-family: 'Inter', sans-serif;
     display: flex;
@@ -13,6 +14,7 @@ body {
     background-color: #ffffff;
 }
 
+/* 양쪽 섹션 공통 스타일 / Shared section styles */
 .left-section, .right-section {
     flex: 1;
     display: flex;
@@ -21,10 +23,12 @@ body {
     padding: 40px;
 }
 
+/* 로그인 섹션 / Left login section */
 .left-section {
     background: #fff;
 }
 
+/* 우측 메시지 섹션 / Right message section */
 .right-section {
     background-color: #f4f8fd;
     display: flex;
@@ -34,6 +38,7 @@ body {
     gap: 32px;
 }
 
+/* 로그인 박스 / Login container */
 .login-container {
     background: #fff;
     border-radius: 16px;
@@ -44,6 +49,7 @@ body {
     text-align: center;
 }
 
+/* EAAI 텍스트 로고 / EAAI text logo */
 .eaai-text {
     font-size: 64px;
     font-weight: 900;
@@ -54,6 +60,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* 메인 이미지 / Main avatar image */
 .main-img {
     width: 100px;
     height: 100px;
@@ -62,6 +69,7 @@ body {
     margin-bottom: 12px;
 }
 
+/* 로그인 타이틀 / Login title */
 .login-container h1 {
     font-size: 20px;
     font-family: 'Spoqa Han Sans Neo', sans-serif;
@@ -69,20 +77,22 @@ body {
     font-weight: 700;
 }
 
+/* 로그인 설명 / Login description */
 .login-container p {
     font-size: 15px;
     font-family: 'Spoqa Han Sans Neo', sans-serif;
-    /* margin-bottom: 16px; */
     color: #7f8c8d;
 }
 
+/* 폼 레이아웃 / Form layout */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
+/* 입력 필드 / Input fields */
 input[type="text"], input[type="password"] {
     width: 80%;
     padding: 10px;
@@ -94,6 +104,7 @@ input[type="text"], input[type="password"] {
     background: #f9fafb;
 }
 
+/* 버튼 / Buttons */
 button {
     padding: 10px 20px;
     margin-top: 10px;
@@ -106,25 +117,23 @@ button {
     margin-bottom: 30px;
 }
 
-/* .signup-section {
-    margin-top: 15px;
-} */
-
+/* 회원가입 안내 / Sign-up section */
 .signup-section p {
     font-size: 12px;
     color: #7f8c8d;
 }
 
+/* 회원가입 버튼 / Sign-up button */
 .signup-section button {
     background: none;
     color: #005fa3;
     border: none;
-
     font-size: 15px;
     font-family: 'Spoqa Han Sans Neo', sans-serif;
     cursor: pointer;
 }
 
+/* 메시지 카드 / Speech message card */
 .speech-card {
     display: flex;
     align-items: center;
@@ -136,6 +145,7 @@ button {
     max-width: 90%;
 }
 
+/* 메시지 카드 아이콘 / SVG icon in card */
 .speech-card svg {
     flex-shrink: 0;
     width: 36px;
@@ -143,6 +153,7 @@ button {
     fill: #6a11cb;
 }
 
+/* 메시지 텍스트 / Speech text */
 .speech-text {
     font-size: 18px;
     font-weight: 700;
@@ -151,53 +162,55 @@ button {
     line-height: 1.5;
 }
 
+/* 데코 이미지 / Decorative image */
 .speech-image {
     width: 400px;
     height: auto;
     margin-bottom: -10px;
 }
 
-/* Responsive */
+/* 반응형 - 태블릿 / Responsive - Tablet */
 @media (max-width: 1024px) {
     body {
-    flex-direction: column;
+        flex-direction: column;
     }
 
     .left-section, .right-section {
-    width: 100%;
-    padding: 30px;
+        width: 100%;
+        padding: 30px;
     }
 
     .eaai-text {
-    font-size: 48px;
+        font-size: 48px;
     }
 
     .speech-card {
-    max-width: 95%;
+        max-width: 95%;
     }
 }
 
+/* 반응형 - 모바일 / Responsive - Mobile */
 @media (max-width: 600px) {
     .login-container {
-    padding: 40px 20px;
+        padding: 40px 20px;
     }
 
     .speech-card {
-    flex-direction: row;
-    align-items: center;
-    padding: 16px;
+        flex-direction: row;
+        align-items: center;
+        padding: 16px;
     }
 
     .speech-card svg {
-    width: 28px;
-    height: 28px;
+        width: 28px;
+        height: 28px;
     }
 
     .speech-text {
-    font-size: 13px;
+        font-size: 13px;
     }
 
     .speech-image {
-    width: 120px;
+        width: 120px;
     }
 }

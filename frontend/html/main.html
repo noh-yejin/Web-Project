@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>EAAI - Emotion Analysis AI</title>
+  <!-- 메인 스타일시트 / Main stylesheet -->
   <link rel="stylesheet" href="/static/css/main.css">
+  <!-- 웹폰트 로딩 / Load web fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
-
 </head>
 <body>
 
-  <!-- Header with Logo and Navigation -->
+  <!-- 헤더: 로고 및 네비게이션 / Header: Logo & Navigation -->
   <header class="main-header">
     <div class="logo-area">
       <img src="/static/img/eaai_icon.png" alt="EAAI Logo" class="logo-img">
@@ -22,98 +23,48 @@
       <a href="/static/html/contact.html">Contact Us</a>
       <a href="/static/html/account.html">My Account</a>
     </nav>
-
   </header>
 
- <main class="main-content">
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <h1 class="main-title">Write your day, <br>we'll read your heart.</h1>
-  </section>
+  <main class="main-content">
+    <!-- 인트로 섹션 / Hero section -->
+    <section class="hero-section">
+      <h1 class="main-title">Write your day, <br>we'll read your heart.</h1>
+    </section>
 
-  <!-- Message Area: Scroll target -->
-  <section class="message-area">
-    <!-- Left Bubble: Diary Input -->
-     <p class="input-label">How was your day today?</p>
-    <div class="bubble-left">
-      <form id="diary-form" method="POST">
-        <label for="entry-date">Select Date:</label>
-        <input type="date" id="entry-date" name="entry-date" required>
-        <textarea id="diary-text" name="diary-text" placeholder="Write about your day here..." required></textarea>
-        <button type="submit">Analyze Emotion</button>
-      </form>
-    </div>
+    <!-- 메시지 영역 / Message area -->
+    <section class="message-area">
 
-    <!-- Right Bubble: Emotion Output -->
-    <div class="bubble-right-wrapper">
-      <div class="bubble-right" id="analysis-result">
-        <p><strong>Sentiment</strong>:<span id="result-sentiment"></span></p>
-        <p><strong>Advice:</strong><span id="result-advice"></span></p>
-        <p><strong>Recommendation:</strong><span id="result-recommendation"></span></p>
+      <!-- 왼쪽: 일기 입력 / Left: Diary input -->
+      <p class="input-label">How was your day today?</p>
+      <div class="bubble-left">
+        <form id="diary-form" method="POST">
+          <label for="entry-date">Select Date:</label>
+          <input type="date" id="entry-date" name="entry-date" required>
+          <textarea id="diary-text" name="diary-text" placeholder="Write about your day here..." required></textarea>
+          <button type="submit">Analyze Emotion</button>
+        </form>
       </div>
-    <img class="bubble-side-img" src="/static/img/emotion.png" alt="Avatar">
-    </div>
-    
-    <div class="analysis-links">
-      <a href="/static/html/calendar.html" class="bubble-link">📅 View Emotion Calendar</a>
-      <a href="/static/html/weekly_summary.html" class="bubble-link">📊 Weekly Emotion Summary</a>
-    </div>
 
-  </section>
-</main>
+      <!-- 오른쪽: 감정 결과 / Right: Emotion result -->
+      <div class="bubble-right-wrapper">
+        <div class="bubble-right" id="analysis-result">
+          <p><strong>Sentiment</strong>:<span id="result-sentiment"></span></p>
+          <p><strong>Advice:</strong><span id="result-advice"></span></p>
+          <p><strong>Recommendation:</strong><span id="result-recommendation"></span></p>
+        </div>
+        <img class="bubble-side-img" src="/static/img/emotion.png" alt="Avatar">
+      </div>
 
+      <!-- 감정 분석 관련 링크 / Analysis-related links -->
+      <div class="analysis-links">
+        <a href="/static/html/calendar.html" class="bubble-link">📅 View Emotion Calendar</a>
+        <a href="/static/html/weekly_summary.html" class="bubble-link">📊 Weekly Emotion Summary</a>
+      </div>
 
-  <script>
-    const form = document.getElementById('diary-form');
-    const textarea = document.getElementById('diary-text');
-    const dateInput = document.getElementById('entry-date');
-    const resultBox = document.getElementById('analysis-result');
-    const sentimentSpan = document.getElementById('result-sentiment');
-    const adviceSpan = document.getElementById('result-advice');
-    const recommendationSpan = document.getElementById('result-recommendation');
+    </section>
+  </main>
 
-    form.addEventListener('submit', async function(event) {
-      event.preventDefault();
-      const text = textarea.value.trim();
-      const date = dateInput.value;
-      const userId = sessionStorage.getItem("user_id") || "anonymous";
-
-      if (!text || !date) return;
-
-      try {
-        const response = await fetch("/analyze", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            text: text,
-            entry_date: date,
-            user_id: userId
-          })
-        });
-
-        const result = await response.json();
-
-        if (response.status === 409) {
-          sentimentSpan.textContent = result.emotion || "-";
-          adviceSpan.textContent = result.message || "-";
-          alert("⚠️ You've already analyzed this input for today.\nWe're showing the existing result.");
-        } else if (response.ok) {
-          sentimentSpan.textContent = result.emotion || "-";
-          adviceSpan.textContent = result.message || "-";
-          recommendationSpan.textContent = result.recommendation || "-";
-        } else {
-          alert("Emotion analysis failed. Please try again.");
-        }
-
-        resultBox.style.display = "block";
-
-      } catch (error) {
-        console.error("Emotion analysis failed:", error);
-        alert("Failed to analyze emotion. Please try again.");
-      }
-    });
-
-  </script>
+<script src="/static/js/main.js"></script>
 
 </body>
 </html>
